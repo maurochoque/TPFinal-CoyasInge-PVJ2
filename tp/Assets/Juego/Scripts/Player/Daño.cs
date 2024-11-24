@@ -7,6 +7,8 @@ public class Daño : MonoBehaviour
     public float vida;
     public BarraDeVida barra;
     private Animator anim;
+
+    HeroKnight heroKnight;
     
     void Start()
     {
@@ -19,6 +21,10 @@ public class Daño : MonoBehaviour
         anim.SetTrigger("Hurt");
         vida -= danio;
         barra.CambiarVidaActual(vida);
+        if(heroKnight.m_isBlocking==true)
+        {
+            vida-=0;
+        }
         if(vida <= 0f)
         {
             anim.SetTrigger("Death");
