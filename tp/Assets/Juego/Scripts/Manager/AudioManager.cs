@@ -16,7 +16,7 @@ public class AudioManager : MonoBehaviour
 
     public void Reproducir(int soundPlay)
     {
-        soundEffects[soundPlay].Play();
+        //soundEffects[soundPlay].Play();
     }
 
     public void Pausar(int soundPlay)

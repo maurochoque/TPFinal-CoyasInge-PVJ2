@@ -25,13 +25,22 @@ public class CharacterNetworkManager : NetworkManager
     }
 
     public override void OnServerDisconnect(NetworkConnectionToClient conn){
-        HeroKnight hero = conn.identity.GetComponent<HeroKnight>();
-        if (hero != null)
+        //HeroKnight hero = conn.identity.GetComponent<HeroKnight>();
+        if (conn.identity != null)
+{
+    HeroKnight hero = conn.identity.GetComponent<HeroKnight>();
+    if (hero != null)
+    {
+        players.Add(hero);
+    }
+}
+
+        /*if (hero != null)
         {
             players.Remove(hero);
         }
         Debug.Log($"Desconectando jugador. Quedan: {players.Count}");
-        base.OnServerDisconnect(conn);
+        base.OnServerDisconnect(conn);*/
     }
 
     public override void OnStopServer()

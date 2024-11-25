@@ -13,7 +13,17 @@ public class Daño : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
+    barra.InicializarBarraVida(vida);
+
+    heroKnight = FindObjectOfType<HeroKnight>();
+    if (heroKnight == null)
+    {
+        Debug.LogError("No se encontró un objeto con el script HeroKnight en la escena.");
+    }
+        /*var heroKnight= new HeroKnight();
+        anim = GetComponent<Animator>();
         barra.InicializarBarraVida(vida);
+        bool isBlocking = heroKnight.m_isBlocking;*/
     }
 
     public void TomarDano(float danio)
