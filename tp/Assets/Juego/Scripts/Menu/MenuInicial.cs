@@ -28,4 +28,9 @@ public class MenuInicial : MonoBehaviour
         print("Saliendo..");
         Application.Quit();
     }
+
+    public void Jugar()
+    {
+        SceneManager.LoadScene("MenuInicio");
+    }
 }

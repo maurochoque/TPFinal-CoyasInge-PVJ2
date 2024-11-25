@@ -14,7 +14,7 @@ public class HeroKnight : FSM {
     [SerializeField] private Transform controlador;
     [SerializeField] private float radioGolpe;
     [SerializeField] private int danioGolpe;
-    [SerializeField] private Slider barravida = null;
+    [SerializeField] public Slider barravida = null;
     [SerializeField] private Transform hero;
 
     [SerializeField] private Animator            m_animator; // Referencia al componente Animator del personaje
@@ -44,7 +44,7 @@ public class HeroKnight : FSM {
     [SyncVar(hook = nameof(OnNickNameChange))]
     string nickName = "";
     [SyncVar(hook = nameof(OnHealthChange))]
-    float health = 100;
+    public float health = 100;
 
     public void SetNickName(string nombre){
         nickName = nombre;
@@ -61,10 +61,8 @@ public class HeroKnight : FSM {
     [Command]
     public void CmdTakeDamage(int damage){
         health -= damage;
+        m_animator.SetBool("Hurt", true);
         Debug.Log(health);
-        if(health <= 0){
-            m_animator.SetBool("Death", true);
-        }
     }
 
     void Start ()
@@ -94,10 +92,10 @@ public class HeroKnight : FSM {
     {
         if(!isLocalPlayer){return;}
     
-        if(Input.GetKeyDown(KeyCode.C)){
+        /*if(Input.GetKeyDown(KeyCode.C)){
             m_animator.SetBool("Hurt", true);
             CmdTakeDamage(10);
-        }
+        }*/
         // Aumentar el temporizador que controla el combo de ataque
         m_timeSinceAttack += Time.deltaTime;
 
@@ -232,47 +230,16 @@ public class HeroKnight : FSM {
             //AudioManager.instance.Reproducir(6);
         }
     }
-/****************************/
 
-private void Deslizar(){
-    // Verificar si está deslizándose en la pared
-    m_isWallSliding = (m_wallSensorR1.State() && m_wallSensorR2.State()) || (m_wallSensorL1.State() && m_wallSensorL2.State());
-
-    // Verificar si la velocidad en Y está disminuyendo
-    bool isFalling = m_body2d.velocity.y < 0;
-
-    // Si está deslizándose en la pared y está cayendo, activar la animación "WallSlide"
-    if (m_isWallSliding && isFalling) {
-        m_animator.SetBool("WallSlide", true);
-        m_animator.SetBool("Idle", false); // Desactivar la animación Idle si está deslizándose
-    } 
-    // Si no está deslizándose o no está cayendo, desactivar la animación "WallSlide"
-    else {
-        m_animator.SetBool("WallSlide", false);
-        m_animator.SetBool("Idle", true); // Activar la animación "Idle"
-    }
-}
-
-/*private void Deslizar(){
-    // Deslizar en la pared
-    m_isWallSliding = (m_wallSensorR1.State() && m_wallSensorR2.State()) || (m_wallSensorL1.State() && m_wallSensorL2.State());
-
-    // Si está deslizándose por la pared, activa la animación "WallSlide"
-    if (m_isWallSliding) {
-        m_animator.SetBool("WallSlide", true);
-        m_animator.SetBool("Idle", false); // Desactiva la animación "Idle" si está deslizándose
-    }
-    // Si no está deslizándose por la pared, activa la animación "Idle"
-    else {
-        m_animator.SetBool("WallSlide", false); // Desactiva la animación "WallSlide"
-        m_animator.SetBool("Idle", true); // Activa la animación "Idle"
-    }
-}*/
-    /*private void Deslizar(){
+    private void Deslizar(){
         // Deslizar en la pared
         m_isWallSliding = (m_wallSensorR1.State() && m_wallSensorR2.State()) || (m_wallSensorL1.State() && m_wallSensorL2.State());
         m_animator.SetBool("WallSlide", m_isWallSliding);
-    }*/
+    }
+
+    public void Morir(){
+        m_animator.SetBool("Death", true);
+    }
 
     private void Golpear(){
         Collider2D[] objetos = Physics2D.OverlapCircleAll(controlador.position, radioGolpe);
@@ -294,7 +261,7 @@ private void Deslizar(){
 
     // Eventos de animacion
     // Llamado en la animacion de deslizamiento.
-    /******Sin Efecto*******/
+
     void AE_SlideDust(){
         Vector3 spawnPosition;
 
