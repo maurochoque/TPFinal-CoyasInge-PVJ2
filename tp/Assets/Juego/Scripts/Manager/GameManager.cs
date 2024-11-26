@@ -1,7 +1,9 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
+using UnityEngine.UI;
 
 public class GameManager : NetworkBehaviour 
 {
@@ -36,22 +38,54 @@ public class GameManager : NetworkBehaviour
     private void RpcStartGame()
     {
         Debug.Log("Starting game on client...");
-        gameUI.OnStartGame(); // Llama a la UI para actualizar el cliente
+        gameUI.OnStartGame(); 
     }
+
+
+
+    public void StartHealthLogic()
+{
+    // solo ejecuta la logica si el servidor es el que la llama
+    if (!isServer) return;
+
+    // buscar el HealthController
+    HealthController playerHealth = FindObjectOfType<HealthController>();
+    
+    if (playerHealth != null)
+    {
+        // activa la logica de salud (solo en el servidor)
+        playerHealth.StartGame();
+
+        // activar el Slider (solo en el servidor)
+        HeroKnight hero = playerHealth.GetComponentInParent<HeroKnight>();
+        if (hero != null)
+        {
+            Slider healthSlider = hero.GetComponentInChildren<Slider>();
+            if (healthSlider != null)
+            {
+                healthSlider.gameObject.SetActive(true); 
+                Debug.Log("slider activado ");
+            }
+            else
+            {
+                Debug.LogError("no se encontro el Slider dentro de HeroKnight");
+            }
+        }
+        else
+        {
+            Debug.LogError("no se encontro HeroKnight");
+        }
+    }
+    else
+    {
+        Debug.LogError("no se encontr un HealthController en la escena");
+    }
+}
+
 
     public void ClearLocalPlayer()
     {
         localPlayer = null;
-        Debug.Log("Local player cleared.");
+        Debug.Log("local player cleared.");
     }
-
-    /*[Server]
-    public void StartGame() {
-        RpcStartGame();
-    }
-
-    [ClientRpc]
-    private void RpcStartGame(){
-        gameUI.OnStartGame();
-    }*/
 }

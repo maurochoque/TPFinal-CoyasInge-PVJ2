@@ -5,9 +5,9 @@ using Cinemachine;
 
 public class HeroKnightPS : NetworkBehaviour
 {
-    [SerializeField] private float m_speed = 5.0f;
-    [SerializeField] private float m_jumpForce = 12.0f;
-    [SerializeField] private Transform hero;
+    //[SerializeField] private float m_speed = 5.0f;
+    //[SerializeField] private float m_jumpForce = 12.0f;
+    //[SerializeField] private Transform hero;
     [SerializeField] private TextMeshProUGUI nameDisplay = null;
 
     private MovementController movementController;
@@ -44,12 +44,20 @@ public class HeroKnightPS : NetworkBehaviour
     }
 
     void Update()
-    {
-        if (!isLocalPlayer) return;
+{
+    if (!isLocalPlayer) return;
 
-        movementController.HandleMovement();
-        animationController.UpdateAnimations(movementController.IsGrounded, movementController.InputX);
-        attackController.HandleAttack();
-    }
+    movementController.HandleMovement();
+
+    animationController.UpdateAnimations(
+        movementController.IsGrounded,
+        movementController.InputX
+    );
+
+    animationController.TriggerSlide(movementController.IsWallSliding);
+
+    attackController.HandleAttack();
+}
+  
 }
 
