@@ -4,7 +4,6 @@ public class AnimationController : MonoBehaviour
 {
     [SerializeField] private Animator animator;
     [SerializeField] private Transform hero;
-
     private bool m_rolling = false;
     private int m_facingDirection = 1;
     private float m_delayToIdle = 0.0f;
