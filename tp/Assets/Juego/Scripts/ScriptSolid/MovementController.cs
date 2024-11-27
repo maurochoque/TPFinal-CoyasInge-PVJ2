@@ -41,7 +41,7 @@ public class MovementController : MonoBehaviour
         {
             IsWallSliding = true;
 
-            // Reducir la velocidad al deslizarse
+            // educir la velocidad al deslizarse
             //rb.velocity = new Vector2(rb.velocity.x, -wallSlideSpeed);
 
             FindObjectOfType<AnimationController>().TriggerSlide(true);

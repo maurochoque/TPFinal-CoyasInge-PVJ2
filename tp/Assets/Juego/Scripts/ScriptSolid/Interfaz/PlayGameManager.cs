@@ -14,7 +14,7 @@ public class PlayGameManager : MonoBehaviour
 
     if (playerHealth == null)
     {
-        Debug.LogError("No se encontr un HealthController en la escena.");
+        Debug.LogError("no se encontr un HealthController en la escena.");
         return;
     }
 
