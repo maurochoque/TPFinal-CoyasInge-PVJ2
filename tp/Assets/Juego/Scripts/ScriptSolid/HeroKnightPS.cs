@@ -14,6 +14,7 @@ public class HeroKnightPS : NetworkBehaviour
     private AnimationController animationController;
     private HealthController healthController;
     private AttackController attackController;
+    private BlockController blockController;
 
     [SyncVar(hook = nameof(OnNickNameChange))]
     private string nickName = "";
@@ -24,6 +25,7 @@ public class HeroKnightPS : NetworkBehaviour
         animationController = GetComponent<AnimationController>();
         healthController = GetComponent<HealthController>();
         attackController = GetComponent<AttackController>();
+        blockController = GetComponent<BlockController>();
 
         if (isLocalPlayer)
         {
@@ -44,20 +46,22 @@ public class HeroKnightPS : NetworkBehaviour
     }
 
     void Update()
-{
-    if (!isLocalPlayer) return;
+    {
+        if (!isLocalPlayer) return;
 
-    movementController.HandleMovement();
+        movementController.HandleMovement();
 
-    animationController.UpdateAnimations(
-        movementController.IsGrounded,
-        movementController.InputX
-    );
+        animationController.UpdateAnimations(
+            movementController.IsGrounded,
+            movementController.InputX
+        );
 
-    animationController.TriggerSlide(movementController.IsWallSliding);
+        animationController.TriggerSlide(movementController.IsWallSliding);
 
-    attackController.HandleAttack();
-}
+        attackController.HandleAttack();
+
+        blockController.Bloquear();
+    }
   
 }
 

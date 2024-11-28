@@ -69,10 +69,13 @@ public class AnimationController : MonoBehaviour
         animator.SetTrigger("Roll");
     }
 
-    public void TriggerBlock(bool isBlocking)
+    public void TriggerIdleBlock(bool isBlocking)
     {
-        animator.SetTrigger("Block");
         animator.SetBool("IdleBlock", isBlocking);
+    }
+
+    public void TriggerBlock(){
+        animator.SetTrigger("Block");
     }
 
     public void TriggerSlide(bool isWallSliding)

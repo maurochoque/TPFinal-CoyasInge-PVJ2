@@ -6,12 +6,32 @@ public class AttackController : MonoBehaviour
     [SerializeField] private float attackRadius = 0.5f;
     [SerializeField] private int damage = 10;
     [SerializeField] private Animator animator;
+    private int m_currentAttack = 0; // Numero de ataque actual en el combo
+    private float m_timeSinceAttack = 0.0f;
+
+    private void Update() {
+        m_timeSinceAttack += Time.deltaTime;
+    }
 
     public void HandleAttack()
     {
-        if (Input.GetKeyDown(KeyCode.J))
+        Rigidbody2D rigid = GetComponent<Rigidbody2D>();
+        if(Input.GetKeyDown(KeyCode.J) && m_timeSinceAttack > 0.25f)
         {
-            animator.SetTrigger("Attack1");
+            rigid.velocity = Vector2.zero;
+            //AudioManager.instance.Reproducir(5);
+            m_currentAttack++;
+
+            // Volver al uno despues del tercer ataque
+            if (m_currentAttack > 3)
+                m_currentAttack = 1;
+
+            // Restablecer el combo de ataque si el tiempo desde el ultimo ataque es demasiado grande
+            if (m_timeSinceAttack > 1.0f)
+                m_currentAttack = 1;
+
+            animator.SetTrigger("Attack" + m_currentAttack);// Llamar a una de las tres animaciones de ataque "Attack1", "Attack2", "Attack3"
+            m_timeSinceAttack = 0.0f;// Restablecer temporizador
             PerformAttack();
         }
     }
@@ -24,7 +44,7 @@ public class AttackController : MonoBehaviour
         {
             if (enemy.CompareTag("Enemigos"))
             {
-                enemy.GetComponent<HealthController>()?.TakeDamage(damage);
+                enemy.GetComponent<Daño>()?.TomarDano(damage);
             }
         }
     }
