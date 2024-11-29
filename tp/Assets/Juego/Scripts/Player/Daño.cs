@@ -10,7 +10,7 @@ public class Daño : MonoBehaviour
     
     void Start()
     {
-        anim = GetComponent<Animator>();
+        anim = FindObjectOfType<Animator>();
         barra.InicializarBarraVida(vida);
     }
 
@@ -23,7 +23,7 @@ public class Daño : MonoBehaviour
         {
             anim.SetTrigger("Death");
             AudioManager.instance.Reproducir(11);
-            gameObject.SetActive(false);
+            Destroy(gameObject);
         }
     }
 

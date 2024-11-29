@@ -423,15 +423,15 @@ RectTransform:
   m_GameObject: {fileID: 48788192}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.99992067, y: 0.99992067, z: 0.99992067}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1264737096}
   m_Father: {fileID: 985541149}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 287, y: -116}
+  m_AnchoredPosition: {x: -8, y: -228}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &48788194
@@ -2823,7 +2823,7 @@ RectTransform:
   m_GameObject: {fileID: 985541148}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.56375, y: 0.56375, z: 0.56375}
+  m_LocalScale: {x: 0.7, y: 0.73, z: 0.7}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 204785528}
@@ -5231,7 +5231,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 192.14001, y: -17}
+  m_AnchoredPosition: {x: 321, y: 62}
   m_SizeDelta: {x: 642.49, y: 340.67}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1474884066
@@ -5256,20 +5256,13 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'W: Saltar
 
-    A: Movimiento Izquierda
+    A: Mov Izq
 
-    D: Movimiento Derecha
+    D: Mov Der
 
-    J:
-    Ataque
+    J: Ataque
 
-    K: Bloquear
-
-    Shift izquierdo: Rodar
-
-
-    advertencia: no toques
-    a los mosntruos es muerte instantanea!!'
+    K: Bloquear'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
@@ -5296,7 +5289,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 33.7
+  m_fontSize: 116.4
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -5332,7 +5325,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 1.5307281, y: 0, z: 1.7556839, w: -2.7228243}
+  m_margin: {x: -185.48036, y: -76.379395, z: -413.8246, w: -175.40678}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -5691,7 +5684,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0

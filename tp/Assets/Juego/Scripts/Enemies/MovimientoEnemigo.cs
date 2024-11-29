@@ -14,10 +14,12 @@ public class MovimientoEnemigo : MonoBehaviour
     public int danioGolpe;
     public float distancia;
 
+    public bool isPool;
+
     void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
+        anim = FindObjectOfType<Animator>();
     }
 
     private void Update() {
