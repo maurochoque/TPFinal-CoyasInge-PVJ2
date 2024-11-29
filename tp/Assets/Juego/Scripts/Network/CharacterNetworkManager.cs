@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 using Mirror;
+using UnityEngine.UI;
 
 public class CharacterNetworkManager : NetworkManager
 {
     public List<HeroKnight> players = new List<HeroKnight>();
+
+
+
 
     public override void OnServerAddPlayer(NetworkConnectionToClient conn){
         base.OnServerAddPlayer(conn);

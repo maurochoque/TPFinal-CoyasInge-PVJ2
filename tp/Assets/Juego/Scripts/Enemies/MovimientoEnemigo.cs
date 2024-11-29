@@ -16,16 +16,14 @@ public class MovimientoEnemigo : MonoBehaviour
     //public Transform enemy;
     //public Transform punto1, punto2;
     public Animator anim;
-    public float speed_walk, speed_run;
-    public bool rango_vision;
+    public float speed_walk;
     public float rango_ataque;
     public int danioGolpe;
     public float distancia;
-    private bool movingRight = true;
 
     void Awake()
     {
-        rigid = GetComponent<Rigidbody2D>();
+//        rigid = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         player = FindObjectOfType<HeroKnight>();   
     }
