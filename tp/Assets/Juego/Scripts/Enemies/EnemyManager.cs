@@ -15,7 +15,7 @@ public class EnemyManager : MonoBehaviour
     //[SerializeField] private GameObject canva;
     //[SerializeField] private CinemachineConfiner2D vCam;
     //[SerializeField] public PolygonCollider2D pol;
-    private float cont = 15;
+    private float cont = 3;
     private bool band;
 
     private void Start() {

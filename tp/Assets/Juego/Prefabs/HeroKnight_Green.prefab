@@ -396,7 +396,6 @@ GameObject:
   - component: {fileID: 3805892186606954751}
   - component: {fileID: 3839578496210338396}
   - component: {fileID: 4023334027151554175}
-  - component: {fileID: 8588509534557728876}
   - component: {fileID: 2480988093568567813}
   - component: {fileID: 3883742330949821926}
   - component: {fileID: -4762250915294128531}
@@ -406,6 +405,7 @@ GameObject:
   - component: {fileID: 4362621432599520825}
   - component: {fileID: -8111759066583823549}
   - component: {fileID: 1335254111264609057}
+  - component: {fileID: 4830379326745238587}
   m_Layer: 0
   m_Name: HeroKnight_Green
   m_TagString: Player
@@ -543,18 +543,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.997895, y: 2.5916138}
   m_EdgeRadius: 0
---- !u!114 &8588509534557728876
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2202566833572084585}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6eebf608b3b9f254181d408152104ec0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2480988093568567813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -731,11 +719,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 15
   jumpForce: 12
-  m_wallSensorR1: {fileID: 0}
-  m_wallSensorR2: {fileID: 0}
-  m_wallSensorL1: {fileID: 0}
-  m_wallSensorL2: {fileID: 0}
+  m_wallSensorR1: {fileID: 731880976726017237}
+  m_wallSensorR2: {fileID: 7826924840274799159}
+  m_wallSensorL1: {fileID: 6286038296174568476}
+  m_wallSensorL2: {fileID: 2541945986914773845}
   wallSlideSpeed: 5
+--- !u!114 &4830379326745238587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2202566833572084585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44a4c70831259a94598b58a5b1f50bec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  escudo: {fileID: 3442846906347819562}
 --- !u!1 &2809536943973628549
 GameObject:
   m_ObjectHideFlags: 0
@@ -936,7 +937,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2156786849884134744}
-  - component: {fileID: 8059427327081702119}
+  - component: {fileID: 1564861696973320226}
   m_Layer: 6
   m_Name: Escudo
   m_TagString: Escudo
@@ -959,8 +960,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4436494040201295678}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!70 &8059427327081702119
-CapsuleCollider2D:
+--- !u!61 &1564861696973320226
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -988,12 +989,22 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.039051503, y: -0.13394743}
-  m_Size: {x: 0.39150995, y: 0.9756459}
-  m_Direction: 0
+  m_Offset: {x: -0.58991855, y: -0.44026405}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.5792731, y: 2.5361166}
+  m_EdgeRadius: 0
 --- !u!1 &3766626996699659502
 GameObject:
   m_ObjectHideFlags: 0

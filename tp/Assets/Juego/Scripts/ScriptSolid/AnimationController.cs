@@ -44,6 +44,7 @@ public class AnimationController : MonoBehaviour
         if (m_rolling)
         {
             rollTimer += Time.deltaTime;
+            AudioManager.instance.Reproducir(6);
             if (rollTimer > rollDuration)
             {
                 m_rolling = false;
@@ -54,6 +55,7 @@ public class AnimationController : MonoBehaviour
     public void TriggerJump()
     {
         animator.SetTrigger("Jump");
+        AudioManager.instance.Reproducir(3);
         animator.SetBool("Grounded", false);
     }
 

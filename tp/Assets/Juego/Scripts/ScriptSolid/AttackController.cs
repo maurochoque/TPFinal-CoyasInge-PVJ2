@@ -19,7 +19,7 @@ public class AttackController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.J) && m_timeSinceAttack > 0.25f)
         {
             rigid.velocity = Vector2.zero;
-            //AudioManager.instance.Reproducir(5);
+            AudioManager.instance.Reproducir(5);
             m_currentAttack++;
 
             // Volver al uno despues del tercer ataque
@@ -45,6 +45,7 @@ public class AttackController : MonoBehaviour
             if (enemy.CompareTag("Enemigos"))
             {
                 enemy.GetComponent<Daño>()?.TomarDano(damage);
+                AudioManager.instance.Reproducir(14);
             }
         }
     }

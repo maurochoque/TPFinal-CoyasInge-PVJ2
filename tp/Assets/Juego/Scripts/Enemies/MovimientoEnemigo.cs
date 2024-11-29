@@ -5,27 +5,22 @@ using UnityEngine.SceneManagement;
 
 public class MovimientoEnemigo : MonoBehaviour
 {
-    //Player
-    //public GameObject player;
     public LayerMask layer;
     public LayerMask suelo;
-    public HeroKnight player;
-    //Enemigo
     public Transform controlador, ground; 
     private Rigidbody2D rigid;
-    //public Transform enemy;
-    //public Transform punto1, punto2;
     public Animator anim;
     public float speed_walk;
     public float rango_ataque;
     public int danioGolpe;
     public float distancia;
 
+    public bool isPool;
+
     void Awake()
     {
-//        rigid = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
-        player = FindObjectOfType<HeroKnight>();   
+        rigid = GetComponent<Rigidbody2D>();
+        anim = FindObjectOfType<Animator>();
     }
 
     void Start()
