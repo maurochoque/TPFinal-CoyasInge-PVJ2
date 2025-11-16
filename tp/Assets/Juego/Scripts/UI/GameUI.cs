@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class GameUI : MonoBehaviour
 {
-    public GameObject hudUI;
     public GameCountDown countDownUI;
     //public GameSelectCharacter selectCharacter;
 

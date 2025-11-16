@@ -8,19 +8,17 @@ public class Lobby : MonoBehaviour
 {
     [SerializeField] Button btnStartLobby;
     [SerializeField] Button btnExitLobby;
+    public int select;
 
     private void Start() {
-        if(NetworkServer.active){
-            btnStartLobby.gameObject.SetActive(true);
-            btnStartLobby.onClick.AddListener(() => StartGame());
-        }else{
-            btnStartLobby.gameObject.SetActive(false);
-        }
+        btnStartLobby.onClick.AddListener(() => StartGame());
 
         btnExitLobby.onClick.AddListener(() => ExitLobby());
     }
 
     private void StartGame(){
+        select = PlayerPrefs.GetInt("Select", 0);
+        PlayerPrefs.SetInt("Select", select);
         NetworkManager.singleton.ServerChangeScene("JuegoPrincipal");
     }
 

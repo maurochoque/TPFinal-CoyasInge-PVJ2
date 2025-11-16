@@ -41,8 +41,6 @@ public class GameManager : NetworkBehaviour
         gameUI.OnStartGame(); 
     }
 
-
-
     public void StartHealthLogic()
 {
     // solo ejecuta la logica si el servidor es el que la llama

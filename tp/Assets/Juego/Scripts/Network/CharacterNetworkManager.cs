@@ -7,10 +7,7 @@ using UnityEngine.UI;
 
 public class CharacterNetworkManager : NetworkManager
 {
-    public List<HeroKnight> players = new List<HeroKnight>();
-
-
-
+    /*public List<HeroKnight> players = new List<HeroKnight>();
 
     public override void OnServerAddPlayer(NetworkConnectionToClient conn){
         base.OnServerAddPlayer(conn);
@@ -42,5 +39,5 @@ public class CharacterNetworkManager : NetworkManager
     {
         players.Clear();
         base.OnStopServer();
-    }
+    }*/
 }
