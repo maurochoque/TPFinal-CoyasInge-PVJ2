@@ -25,7 +25,7 @@ public class MenuInicial : MonoBehaviour
         //select = PlayerPrefs.GetInt("Select", 0);
         //PlayerPrefs.SetInt("Select", select);
         NetworkManager.singleton.StartHost();
-        NetworkManager.singleton.ServerChangeScene("JuegoPrincipal");
+        NetworkManager.singleton.ServerChangeScene("Nivel1");
     }
 
     public void ExitGame()

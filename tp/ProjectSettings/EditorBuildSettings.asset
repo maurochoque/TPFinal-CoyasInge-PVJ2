@@ -9,8 +9,14 @@ EditorBuildSettings:
     path: Assets/Juego/Scene/MenuInicio.unity
     guid: 24541f3f02099514996a3236389f16c8
   - enabled: 1
-    path: Assets/Juego/Scene/JuegoPrincipal.unity
+    path: Assets/Juego/Scene/Nivel1.unity
     guid: f9932cc447c2c0b489f7fe04352db427
+  - enabled: 1
+    path: Assets/Juego/Scene/Nivel2.unity
+    guid: 9cc1612aa7b41b846a6778e8c8fd5afa
+  - enabled: 1
+    path: Assets/Juego/Scene/Nivel3.unity
+    guid: b957789e394fd1341b288bad1f07f1b2
   - enabled: 1
     path: Assets/Juego/Scene/MenuVictoria.unity
     guid: dc56c4c059985bd4cbf4a96cbc5f7929
