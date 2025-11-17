@@ -1,14 +1,12 @@
 using UnityEngine;
-using Mirror;
 using TMPro;
 using Cinemachine;
 
-public class HeroKnightPS : NetworkBehaviour
+public class HeroKnightPS : MonoBehaviour
 {
     //[SerializeField] private float m_speed = 5.0f;
     //[SerializeField] private float m_jumpForce = 12.0f;
     //[SerializeField] private Transform hero;
-    [SerializeField] private TextMeshProUGUI nameDisplay = null;
 
     private MovementController movementController;
     private AnimationController animationController;
@@ -16,8 +14,6 @@ public class HeroKnightPS : NetworkBehaviour
     private AttackController attackController;
     private BlockController blockController;
 
-    [SyncVar(hook = nameof(OnNickNameChange))]
-    private string nickName = "";
 
     void Start()
     {
@@ -27,27 +23,14 @@ public class HeroKnightPS : NetworkBehaviour
         attackController = GetComponent<AttackController>();
         blockController = GetComponent<BlockController>();
 
-        if (isLocalPlayer)
-        {
-            var vCam = FindObjectOfType<CinemachineVirtualCamera>();
-            vCam.Follow = transform;
-            vCam.LookAt = transform;
-        }
-    }
+        var vCam = FindObjectOfType<CinemachineVirtualCamera>();
+        vCam.Follow = transform;
+        vCam.LookAt = transform;
 
-    public void SetNickName(string name)
-    {
-        nickName = name;
-    }
-
-    private void OnNickNameChange(string oldName, string newName)
-    {
-        nameDisplay.text = newName;
     }
 
     void Update()
     {
-        if (!isLocalPlayer) return;
 
         movementController.HandleMovement();
 

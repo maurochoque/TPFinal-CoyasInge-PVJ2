@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
-using Mirror;
 using UnityEngine.UI;
 
-public class CharacterNetworkManager : NetworkManager
+public class CharacterNetworkManager : MonoBehaviour
 {
     /*public List<HeroKnight> players = new List<HeroKnight>();
 

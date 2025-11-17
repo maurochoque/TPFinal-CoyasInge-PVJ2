@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using Mirror;
 
 public class CharacterSelect : MonoBehaviour
 {
@@ -41,13 +40,13 @@ public class CharacterSelect : MonoBehaviour
 
     public void Iniciarserver(){
         PlayerPrefs.SetInt("Select", select);
-        NetworkManager.singleton.StartHost();
+        //NetworkManager.singleton.StartHost();
         gameObject.SetActive(false);
     }
 
     public void JoinServer(){
         PlayerPrefs.SetInt("Select", select);
-        NetworkManager.singleton.StartClient();
+        //NetworkManager.singleton.StartClient();
         gameObject.SetActive(false);
     }
 }

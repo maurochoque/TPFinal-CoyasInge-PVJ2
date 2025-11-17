@@ -1,10 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
-using Mirror;
 
-public class HealthController : NetworkBehaviour, IHealth
+public class HealthController : MonoBehaviour, IHealth
 {
-    [SyncVar(hook = nameof(OnHealthChange))]
     private float health = 100;
 
     [SerializeField] public Slider healthBar;
@@ -19,7 +17,7 @@ public class HealthController : NetworkBehaviour, IHealth
     public void TakeDamage(int damage)
     {
         //  ejecutar despues de que el juego haya comenzado y si es el servidor
-        if (!gameStarted || !isServer) return;
+        if (!gameStarted) return;
 
         health -= damage;
         if (health <= 0)
@@ -30,7 +28,7 @@ public class HealthController : NetworkBehaviour, IHealth
 
     public void Heal(float amount)
     {
-        if (!gameStarted || !isServer) return;
+        if (!gameStarted) return;
 
         health += amount;
         if (health > 100)

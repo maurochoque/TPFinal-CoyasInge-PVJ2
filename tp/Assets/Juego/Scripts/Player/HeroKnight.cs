@@ -2,7 +2,6 @@
 using System.Collections;
 using UnityEngine.UI;
 using Cinemachine;
-using Mirror;
 using TMPro;
 
 public class HeroKnight : FSM {
@@ -41,9 +40,9 @@ public class HeroKnight : FSM {
     public bool m_isAttacking = false, m_isBlocking = false, m_isMoving = false;
     public CinemachineVirtualCamera vCam;
 
-    [SyncVar(hook = nameof(OnNickNameChange))]
+    //[SyncVar(hook = nameof(OnNickNameChange))]
     string nickName = "";
-    [SyncVar(hook = nameof(OnHealthChange))]
+    //[SyncVar(hook = nameof(OnHealthChange))]
     public float health = 100;
 
     public void SetNickName(string nombre){
@@ -58,7 +57,7 @@ public class HeroKnight : FSM {
         name.text = nuevo;
     }
 
-    [Command]
+    //[Command]
     public void CmdTakeDamage(int damage){
         health -= damage;
         m_animator.SetBool("Hurt", true);
@@ -76,21 +75,21 @@ public class HeroKnight : FSM {
         m_wallSensorL1 = transform.Find("WallSensor_L1").GetComponent<Sensor_HeroKnight>(); // Obtener el sensor de pared izquierda 1
         m_wallSensorL2 = transform.Find("WallSensor_L2").GetComponent<Sensor_HeroKnight>(); // Obtener el sensor de pared izquierda 2
         vCam = FindObjectOfType<CinemachineVirtualCamera>();
-        if(isLocalPlayer){
+        /*if(isLocalPlayer){
             vCam.m_Follow = transform;
             vCam.LookAt = transform;
-        }
+        }*/
     }
 
-    public override void OnStartLocalPlayer(){
+    /*public override void OnStartLocalPlayer(){
         if(GameManager.GetInstance().localPlayer == null){
             GameManager.GetInstance().localPlayer = this;
         }
-    }
+    }*/
 
     protected override void FSMUpdate ()
     {
-        if(!isLocalPlayer){return;}
+        //if(!isLocalPlayer){return;}
     
         /*if(Input.GetKeyDown(KeyCode.C)){
             m_animator.SetBool("Hurt", true);

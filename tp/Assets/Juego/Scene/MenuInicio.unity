@@ -2393,6 +2393,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   btnStartLobby: {fileID: 44073549}
+  btnExitLobby: {fileID: 2020676403}
 --- !u!212 &1343330856
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2820,7 +2821,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1445290084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2868,7 +2869,7 @@ MonoBehaviour:
   editorAutoStart: 0
   sendRate: 60
   offlineScene: 
-  onlineScene: Assets/Juego/Scene/JuegoPrincipal.unity
+  onlineScene: 
   offlineSceneLoadDelay: 0
   transport: {fileID: 1445290084}
   networkAddress: localhost

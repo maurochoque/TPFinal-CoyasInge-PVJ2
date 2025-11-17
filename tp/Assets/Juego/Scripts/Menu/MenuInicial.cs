@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
-using Mirror;
+using UnityEngine.SceneManagement;
 
 public class MenuInicial : MonoBehaviour
 {
     [SerializeField] Button btnStartLobby;
+    [SerializeField] Button btnExitLobby;
     //private int select;
 
     private void Start()
@@ -24,8 +25,9 @@ public class MenuInicial : MonoBehaviour
     {
         //select = PlayerPrefs.GetInt("Select", 0);
         //PlayerPrefs.SetInt("Select", select);
-        NetworkManager.singleton.StartHost();
-        NetworkManager.singleton.ServerChangeScene("Nivel1");
+        //NetworkManager.singleton.StartHost();
+        //NetworkManager.singleton.ServerChangeScene("Nivel1");
+        SceneManager.LoadScene("Nivel1");
     }
 
     public void ExitGame()

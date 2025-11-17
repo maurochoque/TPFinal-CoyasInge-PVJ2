@@ -2,10 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Mirror;
 using UnityEngine.UI;
 
-public class GameManager : NetworkBehaviour 
+public class GameManager : MonoBehaviour 
 {
     public static GameManager instance;
 
@@ -28,13 +27,13 @@ public class GameManager : NetworkBehaviour
         instance = this;
     }
 
-    [Server]
+    //[Server]
     public void StartGame()
     {
         RpcStartGame();
     }
 
-    [ClientRpc]
+    //[ClientRpc]
     private void RpcStartGame()
     {
         Debug.Log("Starting game on client...");
@@ -44,7 +43,7 @@ public class GameManager : NetworkBehaviour
     public void StartHealthLogic()
 {
     // solo ejecuta la logica si el servidor es el que la llama
-    if (!isServer) return;
+    //if (!isServer) return;
 
     // buscar el HealthController
     HealthController playerHealth = FindObjectOfType<HealthController>();
